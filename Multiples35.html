@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Euler Problems</title>
+</head>
+<body>
+
+<h1>Project Euler problems</h1>
+
+<div id="Ans1"></div>
+<div id="Ans2"></div>
+<div id="Ans3"></div>
+	<script>
+	var x=0;
+	function Multiples(){
+		
+		for(var i=1;i<1000;i++){
+
+			if (((i%3)==0)||((i%5)==0)){
+				x=x+i;
+			}
+		}
+		return x;
+	}
+	Multiples();
+	document.getElementById("Ans1").innerHTML= x;
+	</script>
+	<script>
+	sum=0;
+		var x=0;
+		function fibEven(x,y){
+			var z=0;
+			z=x+y;
+			if(z>4000000){
+				return;
+			}
+			if((z%2)==0){
+				sum=sum+z;
+			}
+			fibEven(y,z);
+		}
+		fibEven(0,1);
+		document.getElementById("Ans2").innerHTML=sum;
+	</script>
+	<script>
+		var N=999999;
+		function primeFactors(x){
+			var primeFactor=0;
+			for(var i=1;i<x;i++){
+				if((x%i)==0){
+					//console.log("foo");
+					var y=isAPrime(i);
+					if((y==true)&&(i>primeFactor)){
+						primeFactor=i;
+						//console.log("bar");
+					}
+				}
+			}
+			return primeFactor;
+		}
+		function isAPrime(x){
+			for(var i=2;i<x;i++){
+				if((x%i)==0){
+					return false;
+				}
+			}
+			return true;
+		}
+		var ans=primeFactors(N);
+		document.getElementById("Ans3").innerHTML=ans;
+	</script>
+
+
+</body>
+</html>
